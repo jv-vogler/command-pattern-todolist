@@ -11,14 +11,14 @@ export const useTodos = () => {
 
   const { todos, setTodos } = value
 
-  const addTodo = (todoText: string) => {
+  const addTodo = (todoText: string, completedStatus: boolean = false) => {
     if (todoText.trim() !== '') {
       setTodos([
         ...todos,
         {
           id: new Date().toISOString(),
           text: todoText,
-          completed: false,
+          completed: completedStatus,
         },
       ])
     }
