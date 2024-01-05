@@ -1,15 +1,8 @@
-import { useContext } from 'react'
-
-import { TodosContext } from '../context/TodosProvider'
+import { useState } from "react"
+import { Todo } from "../types/Todo"
 
 export const useTodos = () => {
-  const value = useContext(TodosContext)
-
-  if (value === undefined) {
-    throw new Error('You forgot the TodosContext Provider')
-  }
-
-  const { todos, setTodos } = value
+  const [todos, setTodos] = useState<Array<Todo>>([])
 
   const addTodo = (todoText: string, completedStatus: boolean = false) => {
     if (todoText.trim() !== '') {
