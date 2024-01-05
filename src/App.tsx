@@ -6,6 +6,7 @@ const App = () => {
   const [todoIntent, setTodoIntent] = useState('')
   const { todos, addTodo, deleteTodo, toggleTodo, undoCommand, redoCommand } = useTodos()
 
+  // Register keyboard shortcuts for Commands
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       const isCtrlPressed = e.ctrlKey || e.metaKey

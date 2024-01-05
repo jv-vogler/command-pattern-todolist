@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 
-import { Command } from '../domain/entities/Command'
+import { Command } from '../types/Command'
 
 export const useCommands = () => {
   const [commandHistory, setCommandHistory] = useState<Array<Command>>([])

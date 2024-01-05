@@ -1,7 +1,7 @@
 import { act, renderHook } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
-import { Command } from '../domain/entities/Command'
+import { Command } from '../types/Command'
 import { useCommands } from './useCommands'
 
 describe('useCommands', () => {

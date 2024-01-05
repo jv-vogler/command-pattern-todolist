@@ -1,17 +1,11 @@
-import { useContext } from 'react'
+import { useState } from 'react'
 
-import { TodosContext } from '../context/TodosProvider'
-import { Command } from '../domain/entities/Command'
+import { Command } from '../types/Command'
+import { Todo } from '../types/Todo'
 import { useCommands } from './useCommands'
 
 export const useTodos = () => {
-  const value = useContext(TodosContext)
-
-  if (value === undefined) {
-    throw new Error('You forgot the TodosContext Provider')
-  }
-
-  const { todos, setTodos } = value
+  const [todos, setTodos] = useState<Array<Todo>>([])
   const { executeCommand, undoCommand, redoCommand } = useCommands()
 
   const addTodoCommand = (todoText: string, completedStatus: boolean = false): Command => {
