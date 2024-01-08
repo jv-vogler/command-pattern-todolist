@@ -14,16 +14,14 @@ export const useTodos = () => {
 
     return {
       execute() {
-        if (todoText.trim() !== '') {
-          setTodos([
-            ...todos,
-            {
-              id: todoId,
-              text: todoText,
-              completed: completedStatus,
-            },
-          ])
-        }
+        setTodos([
+          ...todos,
+          {
+            id: todoId,
+            text: todoText,
+            completed: completedStatus,
+          },
+        ])
       },
 
       undo() {
@@ -33,6 +31,7 @@ export const useTodos = () => {
   }
 
   const addTodo = (todoText: string, completedStatus: boolean = false) => {
+    if (todoText.trim() === '') return
     executeCommand(addTodoCommand(todoText, completedStatus))
   }
 
