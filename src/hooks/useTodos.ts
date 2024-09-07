@@ -6,7 +6,7 @@ import { useCommands } from './useCommands'
 
 export const useTodos = () => {
   const [todos, setTodos] = useState<Array<Todo>>([])
-  const { executeCommand, undoCommand, redoCommand } = useCommands()
+  const { executeCommand, undoCommand, redoCommand, commandHistory, historyPointer } = useCommands()
 
   const addTodoCommand = (todoText: string, completedStatus: boolean = false): Command => {
     const backupState = [...todos]
@@ -73,5 +73,5 @@ export const useTodos = () => {
     executeCommand(deleteTodoCommand(id))
   }
 
-  return { todos, addTodo, toggleTodo, deleteTodo, undoCommand, redoCommand }
+  return { todos, addTodo, toggleTodo, deleteTodo, undoCommand, redoCommand, historyPointer, commandHistory }
 }

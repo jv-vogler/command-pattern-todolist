@@ -31,5 +31,5 @@ export const useCommands = () => {
     nextCommand.execute()
   }, [historyPointer, commandHistory, setHistoryPointer])
 
-  return { executeCommand, undoCommand, redoCommand }
+  return { executeCommand, undoCommand, redoCommand, historyPointer, commandHistory }
 }
