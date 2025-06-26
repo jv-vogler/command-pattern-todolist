@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Todo } from '../types/Todo'
 
@@ -9,6 +9,10 @@ type TodoListProps = {
 }
 
 const TodoList: React.FC<TodoListProps> = ({ todos, toggleTodo, deleteTodo }) => {
+  // if (todos.length) {
+  //   useState()
+  // }
+  
   return (
     <ul className="mt-4">
       {todos.map((todo) => (
